@@ -9,13 +9,13 @@ type GenerateMetadataProps = {
   };
 };
 
-export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
-  const { slug } = await params;
-  const filter = slug?.[0] ?? 'all';
+export async function generateMetadata(
+  { params }: GenerateMetadataProps
+): Promise<Metadata> {
+  const filter = params.slug?.[0] ?? 'all';
 
   const title = `Notes — ${filter} | NoteHub`;
   const description = `Notes filtered by "${filter}" category.`;
-
   const url = `https://notehub.com/notes/filter/${filter}`;
 
   return {
